@@ -41,7 +41,6 @@ print()
 # print('Difference_update:', new_data)
 # print()
 
-
 print('outdated:', outdated)
 print('new_data:', new_data)
 print('new_data2:', new_data2)

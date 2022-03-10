@@ -50,7 +50,6 @@ def get_score2(score):
 print(list(filter(get_score, scores)))
 print(list(filter(get_score2, scores)))
 
-
 # 4 Combine all of the numbers that are in a list on this file using reduce (my_numbers and scores). What is the total?
 
 

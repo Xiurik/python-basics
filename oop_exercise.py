@@ -22,11 +22,13 @@ class Cat():
 
 
 class Simon(Cat):
+
     def sing(self, sounds):
         return f'{sounds}'
 
 
 class Sally(Cat):
+
     def sing(self, sounds):
         return f'{sounds}'
 
@@ -35,6 +37,7 @@ class Sally(Cat):
 
 
 class Bob(Cat):
+
     def sing(self, sounds):
         return f'{sounds}'
 

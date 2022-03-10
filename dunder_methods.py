@@ -1,14 +1,13 @@
 # Dunder methods: Are all the methods that we have available from default with __, this methods can be overrided to
 # behave with in a special way, but we should only do that in special cases and in classes
 
+
 class Toy():
+
     def __init__(self, color, age):
         self.color = color
         self.age = age
-        self.dict = {
-            'name': 'Xiurik',
-            'has_pets': False
-        }
+        self.dict = {'name': 'Xiurik', 'has_pets': False}
         self.data = ['Hello', 'str', 'dunder']
 
     # Here we modify the dunder str method, but only applies on Toy class

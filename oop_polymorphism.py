@@ -1,6 +1,7 @@
 # Polymorphism: is the ability of an object to take on many forms. The most common use of polymorphism in OOP
 # occurs when a parent class reference is used to refer to a child class object, sharing method names.
 class User(object):
+
     def __init__(self, email):
         self.email = email
 
@@ -9,6 +10,7 @@ class User(object):
 
 
 class Wizard(User):
+
     def __init__(self, name, power, email):
         # Here we call the parent init using its name
         # User.__init__(self, email)
@@ -22,13 +24,13 @@ class Wizard(User):
 
 
 class Archer(User):
+
     def __init__(self, name, num_arrows):
         self.name = name
         self.num_arrows = num_arrows
 
     def attack(self):
-        print(
-            f'Archer {self.name}, Attacking with arrows: arrows left = {self.num_arrows}')
+        print(f'Archer {self.name}, Attacking with arrows: arrows left = {self.num_arrows}')
 
 
 merlin = Wizard('Elena', 100, 'elena@gmail.com')

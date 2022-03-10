@@ -1,14 +1,15 @@
 import random
 
-loteria = [(1, 'gallo'), (2, 'diablito'), (3, 'dama'), (4, 'catrin'), (5, 'paraguas'), (6, 'sirena'), (7, 'escalera'),
-           (8, 'botella'), (9, 'barril'), (10, 'arbol'), (11, 'melon'), (12, 'valiente'), (13, 'gorrito'),
-           (14, 'muerte'), (15, 'pera'), (16, 'bandera'), (17, 'bandolon'), (18, 'violoncello'), (19, 'garza'),
-           (20, 'pajaro'), (21, 'mano'), (22, 'bota'), (23, 'luna'), (24, 'cotorro'), (25, 'borracho'), (26, 'negrito'),
-           (27, 'corazon'), (28, 'sandia'), (29, 'tambor'), (30, 'camaron'), (31, 'jaras'), (32, 'musico'),
-           (33, 'arania'), (34, 'soldado'), (35, 'estrella'), (36, 'cazo'), (37, 'mundo'), (38, 'apache'),
-           (39, 'nopal'), (40, 'alacran'), (41, 'rosa'), (42, 'calavera'), (43, 'campana'), (44, 'cantarito'),
-           (45, 'venado'), (46, 'sol'), (47, 'corona'), (48, 'chalupa'), (49, 'pino'), (50, 'pescado'), (51, 'palma'),
-           (52, 'maceta'), (53, 'arpa'), (54, 'rana')]
+loteria = [(1, 'gallo'), (2, 'diablito'), (3, 'dama'), (4, 'catrin'), (5, 'paraguas'), (6, 'sirena'),
+           (7, 'escalera'), (8, 'botella'), (9, 'barril'), (10, 'arbol'), (11, 'melon'), (12, 'valiente'),
+           (13, 'gorrito'), (14, 'muerte'), (15, 'pera'), (16, 'bandera'), (17, 'bandolon'),
+           (18, 'violoncello'), (19, 'garza'), (20, 'pajaro'), (21, 'mano'), (22, 'bota'), (23, 'luna'),
+           (24, 'cotorro'), (25, 'borracho'), (26, 'negrito'), (27, 'corazon'), (28, 'sandia'), (29, 'tambor'),
+           (30, 'camaron'), (31, 'jaras'), (32, 'musico'), (33, 'arania'), (34, 'soldado'), (35, 'estrella'),
+           (36, 'cazo'), (37, 'mundo'), (38, 'apache'), (39, 'nopal'), (40, 'alacran'), (41, 'rosa'),
+           (42, 'calavera'), (43, 'campana'), (44, 'cantarito'), (45, 'venado'), (46, 'sol'), (47, 'corona'),
+           (48, 'chalupa'), (49, 'pino'), (50, 'pescado'), (51, 'palma'), (52, 'maceta'), (53, 'arpa'),
+           (54, 'rana')]
 
 card = []
 cards = []

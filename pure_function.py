@@ -16,9 +16,9 @@ def multiply_by2(li):
 
 # print(multiply_by2(numbers))
 
-
 # Map, filter, zip and reduce
 # Map
+
 
 def multiply_map(item):
     return item * 2

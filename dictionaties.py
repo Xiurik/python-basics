@@ -30,13 +30,7 @@ print(dictionary.get('d', 'Xiurik'))
 print()
 
 # Another way to create a dictionary
-user = dict(
-    name='Xiurik',
-    age=30,
-    is_married=True,
-    likes_music=True,
-    is_sexual=True,
-    sex_per_day=3)
+user = dict(name='Xiurik', age=30, is_married=True, likes_music=True, is_sexual=True, sex_per_day=3)
 print(user)
 print()
 
