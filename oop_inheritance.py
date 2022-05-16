@@ -1,9 +1,11 @@
 class User():
+
     def sing_in(self):
         print('User logged In')
 
 
 class Wizard(User):
+
     def __init__(self, name, power):
         self.name = name
         self.power = power
@@ -13,6 +15,7 @@ class Wizard(User):
 
 
 class Archer(User):
+
     def __init__(self, name, num_arrows):
         self.name = name
         self.num_arrows = num_arrows

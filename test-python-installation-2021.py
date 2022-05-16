@@ -1,6 +1,5 @@
 # Python program that can be executed to report whether particular
 # python packages are available on the system.
-
 import math
 import os
 import sys
@@ -24,10 +23,8 @@ def test_is_python_35():
     if minor >= 5:
         print("Testing Python version-> py{}.{} OK".format(major, minor))
     else:
-        print(
-            "Warning: You should be running Python 3.5 or newer, "
-            + "you have Python {}.{}.".format(major, minor)
-        )
+        print("Warning: You should be running Python 3.5 or newer, " +
+              "you have Python {}.{}.".format(major, minor))
 
 
 def test_numpy():
@@ -89,9 +86,7 @@ def test_pylab():
 
     # check that file does not exist yet:
     if os.path.exists(testfilename):
-        print(
-            "Skipping plotting to file as file {} exists already.".format(testfilename)
-        )
+        print("Skipping plotting to file as file {} exists already.".format(testfilename))
     else:
         # Write plot to file
         pylab.savefig(testfilename)
@@ -109,7 +104,7 @@ def test_sympy():
         return None
     # simple test
     x = sympy.Symbol("x")
-    my_f = x ** 2
+    my_f = x**2
     assert sympy.diff(my_f, x) == 2 * x
     print("Testing sympy...      -> sympy OK")
 

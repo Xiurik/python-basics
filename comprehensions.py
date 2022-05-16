@@ -24,7 +24,7 @@ print(list_numbers)
 print()
 
 # Now lets get a list of 100 numbers squared but only even
-list_numbers = [i ** 2 for i in range(1, 101) if i % 2 == 0]
+list_numbers = [i**2 for i in range(1, 101) if i % 2 == 0]
 print(list_numbers)
 print()
 
@@ -36,16 +36,15 @@ print()
 # Dictionary
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-diction_numbers = {'a': 1, 'b': 2, 'c': 3, 'd': 4,
-                   'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10}
+diction_numbers = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10}
 
 # dictionary of number and squared number
-with_dict = {c: c ** 2 for c in numbers}
+with_dict = {c: c**2 for c in numbers}
 print(with_dict)
 print()
 
 # dictionary of number and cube numbers from a dictionary
 
-with_dict = {c: v ** 2 for c, v in diction_numbers.items() if v % 2 == 0}
+with_dict = {c: v**2 for c, v in diction_numbers.items() if v % 2 == 0}
 print(with_dict)
 print()

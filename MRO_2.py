@@ -2,6 +2,7 @@
 # for a method in a hierarchy of classes. Especially it plays vital role in the context of multiple
 # inheritance as single method may be found in multiple super classes.
 
+
 class X:
     pass
 

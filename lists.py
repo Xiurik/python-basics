@@ -84,8 +84,8 @@ print()
 
 # List Methods
 basket_2 = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 'hello', 'my', 'name', 'is', 'xiurik', 'xiurik',
-    'xiurik', 'xiurik', 'xiurik', 'xiurik', 'xiurik', 'xiurik'
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 'hello', 'my', 'name', 'is', 'xiurik', 'xiurik', 'xiurik', 'xiurik', 'xiurik',
+    'xiurik', 'xiurik', 'xiurik'
 ]
 
 # Index, provide us the index of a specific value starting in 0

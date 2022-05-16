@@ -2,6 +2,7 @@
 # with the methods that operate on that data. Encapsulation is used to hide the values or state of a structured
 # data object inside a class, preventing unauthorized parties’ direct access to them.
 
+
 class PlayerCharacter:
     # Class Object Attribute
     membership = True
@@ -55,7 +56,6 @@ cat3 = Cat('Xah', 22)
 cats = [cat1, cat2, cat3]
 ages = []
 
-
 # 2 Create a function that finds the oldest cat
 
 
@@ -69,6 +69,7 @@ def find_oldest_cat():  # My method (Noob Method)
 
 def get_oldest_cat(*args):  # Teachers Method (Pro Method)
     return max(args)
+
 
 # 3 Print out: "The oldest cat is x years old.". x will be the oldest cat age by using the function in #2
 # print(find_oldest_cat())

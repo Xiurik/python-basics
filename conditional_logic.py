@@ -20,9 +20,7 @@ if is_old or is_friend:
 
 is_old = False
 if is_old and is_friend:
-    print(
-        'is_old is False so there is no need to validate is_friend cause both need to be True'
-    )
+    print('is_old is False so there is no need to validate is_friend cause both need to be True')
 
 if not is_old:
     print('We validate that is_old is equal to False')
