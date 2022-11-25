@@ -1,0 +1,57 @@
+# Create and Activate a Virtual Environment (VSCode)
+
+Run the following commands:
+
+```bash
+Windows:
+python -m venv .venv
+source .venv/Scripts/activate
+
+MacOS:
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+# Install Required Packages
+
+To install all the packages required for the project, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+# Create a requirements.txt file
+
+To create a requirements.txt file, run the following command depending of the OS you are running:
+
+```bash
+pip freeze > requirements-mac.txt
+
+pip freeze > requirements-win.txt
+```
+
+# Get a list of all the outdated packages
+
+```bash
+pip list --outdated
+```
+
+# Update all the packages in one shoot
+
+To update all the packages we will generate a requirements.txt file and replace the == with >=, then run the following command:
+
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+After that, we will rebuild again the requirements.txt file running:
+
+```bash
+pip freeze > requirements.txt
+```
+
+# Update a single package
+
+```bash
+pip install -U <package_name>
+```
