@@ -1,4 +1,5 @@
 import csv
+import json
 import os
 import random as r
 import uuid
@@ -50,7 +51,7 @@ def generateRoomStatusCSV():
   path = 'timeseries/files/RoomStatus.csv'
   with open(path, 'w', encoding='UTF8', newline='') as file:
      writer = csv.writer(file)
-     writer.writerow(['Cid','RoomStatus','TimeStamp'])
+     writer.writerow(['Cid','Value','TimeStamp'])
      writer.writerows(roomStatus)
      file.close()
     
@@ -74,7 +75,7 @@ def generateRoomsCSV():
   path = 'timeseries/files/Rooms.csv'
   with open(path, 'w', encoding='UTF8', newline='') as file:
      writer = csv.writer(file)
-     writer.writerow(['Cid','RoomName','TimeStamp'])
+     writer.writerow(['Cid','Value','TimeStamp'])
      writer.writerows(rooms)
      file.close()
 
@@ -154,7 +155,7 @@ def generateRoomOccupancyCSV():
 
 #endregion
 
-#region 'RoomOccupancy'
+#region 'TimeSeries'
 
 # random.choice([0, 1])
 class TimeSeries:
@@ -211,13 +212,13 @@ def generateTimeSeriesData():
         
         stStart = startDate
         stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
-        
+        room = rooms[r.randint(0,9)][0]
         # Start
-        data = TimeSeries(uuid.uuid4(), stStart, roomStatus[r.randint(0,3)][1],'')
+        data = TimeSeries(room, stStart, roomStatus[r.randint(0,3)][1],'')
         tsSrv.addRow(data)
         
         # Finish
-        data = TimeSeries(uuid.uuid4(), stEnd, roomStatus[r.randint(0,3)][1],'')
+        data = TimeSeries(room, stEnd, roomStatus[r.randint(0,3)][1],'')
         tsSrv.addRow(data)
         
         startDate = stEnd + timedelta(minutes=minutesForRoom[r.randint(0,5)])
@@ -225,6 +226,74 @@ def generateTimeSeriesData():
       originalDate = originalDate + timedelta(days=1)
 
 #endregion
+
+#region TimeSeries JSON
+class TSJson:
+  def __init__(self, cid, timeStamp, accountCid, roomName, roomStartDateTime, roomEndDateTime, hasPeople, messageId, value):
+    self.cid = cid
+    self.timeStamp = timeStamp
+    self.accountCid = accountCid
+    self.roomName = roomName
+    self.roomStartDateTime = roomStartDateTime
+    self.roomEndDateTime = roomEndDateTime
+    self.hasPeople = hasPeople
+    self.messageId = messageId
+    self.value = value
+  
+  def getDict(self):
+    return vars(self)
+  
+  @staticmethod
+  def getColumns():
+    return ['cid','timeStamp','accountCid','roomName','roomStartDateTime','roomEndDateTime','hasPeople','messageId','value']
+
+
+def generateTimeSeriesJSON():
+  minutesForRoom = [10, 20, 30, 40, 45, 50]
+  hoursForRoom = [0, 1]
+  path = 'timeseries/files/TimeSeries.json'
+  originalDate = datetime.fromisoformat('2020-01-01T08:00:00.123456')
+
+  if os.path.exists(path):
+    os.remove(path)
+  
+  while originalDate.date() < datetime.today().date():
+    # Get the new date to generate the records
+    startDate = originalDate
+    
+    endOfDay = False
+    while endOfDay is False:
+      # Avoiding Saturday and Sunday
+      if startDate.isoweekday() == 6 or startDate.isoweekday() == 7:
+        startDate = startDate + timedelta(days=1)
+        continue
+      
+      if startDate.hour >= 20:
+        endOfDay = True
+        continue
+      
+      hasPeople = False if r.randint(0,6) == 6 else True
+      
+      # Randomly select the Hours and Minutes to be added
+      hoursAdd = hoursForRoom[r.randint(0,1)]
+      minutesAdd = minutesForRoom[r.randint(0,5)]
+      
+      stStart = startDate
+      stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
+      
+      srv = TSJson(str(uuid.uuid4()), str(stEnd), accountData[r.randint(0,19)][0], rooms[r.randint(0,9)][1], str(stStart), str(stEnd), hasPeople, '', roomStatus[r.randint(0,3)][1])
+      
+      json_data = json.dumps(srv.getDict(), indent=2)
+      with open(path, 'a') as f:
+        f.write(json_data+',')
+        f.close()
+      
+      startDate = stEnd + timedelta(minutes=minutesForRoom[r.randint(0,5)])
+      
+    originalDate = originalDate + timedelta(days=1)
+  
+
+# endregion
 
 #region 'General'
 
@@ -248,6 +317,7 @@ if __name__ == '__main__':
   # generateRoomStatusCSV()
   # generateRoomsCSV()
   # generateRoomOccupancyCSV()
-  generateTimeSeriesData()
+  # generateTimeSeriesData()
+  generateTimeSeriesJSON()
 
 #endregion
