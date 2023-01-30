@@ -75,7 +75,7 @@ def generateRoomsCSV():
   path = 'timeseries/files/Rooms.csv'
   with open(path, 'w', encoding='UTF8', newline='') as file:
      writer = csv.writer(file)
-     writer.writerow(['Cid','Value','TimeStamp','MessageId'])
+     writer.writerow(['Cid','Name,''ModelType','TimeStamp','MessageId'])
      writer.writerows(rooms)
      file.close()
 
@@ -170,7 +170,7 @@ class TimeSeries:
   
   @staticmethod
   def getColumns():
-    return ['Cid','TimeStamp','Value','MessageId']
+    return ['DeviceCid','TimeStamp','Value','MessageId']
 
 
 def generateTimeSeriesData():
