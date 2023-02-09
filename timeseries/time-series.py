@@ -170,7 +170,7 @@ class TimeSeries:
   
   @staticmethod
   def getColumns():
-    return ['DeviceCid','TimeStamp','Value','MessageId']
+    return ['Cid','TimeStamp','Value','MessageId']
 
 
 def generateTimeSeriesData():
@@ -178,6 +178,7 @@ def generateTimeSeriesData():
   hoursForRoom = [0, 1]
   path = 'timeseries/files/TimeSeries.csv'
   originalDate = datetime.fromisoformat('2017-01-01T08:00:00.123456')
+  endDate = datetime.now()+timedelta(days=60)
   firstRecord = True
 
   if os.path.exists(path):
@@ -185,7 +186,7 @@ def generateTimeSeriesData():
     
   tsSrv = TimeSeriesService(path, TimeSeries.getColumns())
   
-  while originalDate.date() < datetime.today().date():
+  while originalDate.date() < endDate.date():
     # Get the new date to generate the records
     startDate = originalDate
     

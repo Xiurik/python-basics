@@ -1,4 +1,4 @@
-Cid,Value,TimeStamp,MessageId
+Cid,"Name,ModelType",TimeStamp,MessageId
 dd65c41bf379,Pax,2023-01-30T16:36:40.786406Z,MessageIdData
 9b33972d8576,Fulgora,2023-01-30T16:36:41.786406Z,MessageIdData
 8cbb2df198e2,Saturn,2023-01-30T16:36:42.786406Z,MessageIdData
