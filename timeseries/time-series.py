@@ -75,15 +75,13 @@ def generateRoomsCSV():
   path = 'timeseries/files/Rooms.csv'
   with open(path, 'w', encoding='UTF8', newline='') as file:
      writer = csv.writer(file)
-     writer.writerow(['Cid','Name,''ModelType','TimeStamp','MessageId'])
+     writer.writerow(['Cid','Name','TimeStamp','MessageId'])
      writer.writerows(rooms)
      file.close()
 
 #endregion
 
 #region 'RoomOccupancy'
-
-# random.choice([0, 1])
 class Room:
   def __init__(self, Cid, RoomName, StatusStart, StatusEnd, RoomHadPeople, RoomStatus, AccountCid, TimeStamp, MessageId):
     self.Cid = Cid
@@ -156,8 +154,6 @@ def generateRoomOccupancyCSV():
 #endregion
 
 #region 'TimeSeries'
-
-# random.choice([0, 1])
 class TimeSeries:
   def __init__(self, Cid, TimeStamp, Value, MessageId):
     self.Cid = Cid
@@ -312,13 +308,167 @@ class TimeSeriesService:
 
 #endregion
 
+#region 'Devices'
+devicesGUID = [
+  'XB.C1.2A.ED.D8.97',
+  'X9.F4.C5.B5.93.00',
+  'BF.7D.D9.24.C2.A0',
+  'XA.53.D4.E2.EC.E2',
+  'D1.9C.FB.97.D9.47',
+  'X9.B1.A6.D9.5A.48',
+  'XE.D3.F5.6D.15.C6',
+  'XA.6F.2A.5D.84.96',
+  'X0.E0.81.66.05.77',
+  'EC.64.40.67.09.2D'
+]
+
+class XIORoomOccupancy:
+  def __init__(self, Cid, TimeStamp, Value, MessageId):
+    self.Cid = Cid
+    self.TimeStamp = TimeStamp
+    self.Value = Value
+    self.MessageId = MessageId
+  
+  def getDict(self):
+    return vars(self)
+  
+  @staticmethod
+  def getColumns():
+    return ['Cid','TimeStamp','Value','MessageId']
+
+
+def generateXIODeviceRoomsCSV():
+  minutesForRoom = [10, 20, 30, 40, 45, 50]
+  hoursForRoom = [0, 1]
+  path = 'timeseries/files/XIORoomOccupancy.csv'
+  originalDate = datetime.fromisoformat('2022-01-01T08:00:00.123456')
+  endDate = datetime.now()+timedelta(days=60)
+  firstRecord = True
+
+  if os.path.exists(path):
+    os.remove(path)
+    
+  tsSrv = TimeSeriesService(path, XIORoomOccupancy.getColumns())
+  
+  while originalDate.date() < endDate.date():
+    # Get the new date to generate the records
+    startDate = originalDate
+    
+    if firstRecord is True:
+      headers = XIORoomOccupancy('Cid','TimeStamp','Value','MessageId')
+      tsSrv.addRow(headers)
+      firstRecord = False
+    elif firstRecord is False:
+      endOfDay = False
+      
+      while endOfDay is False:
+        # Avoiding Saturday and Sunday
+        if startDate.isoweekday() == 6 or startDate.isoweekday() == 7:
+          startDate = startDate + timedelta(days=1)
+          continue
+        
+        if startDate.hour >= 20:
+          endOfDay = True
+          continue
+        
+        # Randomly select the Hours and Minutes to be added
+        hoursAdd = hoursForRoom[r.randint(0,1)]
+        minutesAdd = minutesForRoom[r.randint(0,5)]
+        
+        stStart = startDate
+        stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
+        device = devicesGUID[r.randint(0,9)][0]
+        
+        # Start
+        data = XIORoomOccupancy(device, stStart.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), roomStatus[r.randint(0,3)][1],'MessageIdData')
+        tsSrv.addRow(data)
+        # Finish
+        data = XIORoomOccupancy(device, stEnd.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), roomStatus[r.randint(0,3)][1],'MessageIdData')
+        
+        tsSrv.addRow(data)
+        startDate = stEnd + timedelta(minutes=minutesForRoom[r.randint(0,5)])
+        
+      originalDate = originalDate + timedelta(days=1)
+
+
+class XIORooms:
+  def __init__(self, Cid, TimeStamp, Value, MessageId):
+    self.Cid = Cid
+    self.TimeStamp = TimeStamp
+    self.Value = Value
+    self.MessageId = MessageId
+  
+  def getDict(self):
+    return vars(self)
+  
+  @staticmethod
+  def getColumns():
+    return ['Cid','TimeStamp','Value','MessageId']
+
+
+def generateXIORoomsCSV():
+  minutesForRoom = [10, 20, 30, 40, 45, 50]
+  hoursForRoom = [0, 1]
+  path = 'timeseries/files/XIORooms.csv'
+  originalDate = datetime.fromisoformat('2022-01-01T08:00:00.123456')
+  endDate = datetime.now()+timedelta(days=60)
+  firstRecord = True
+
+  if os.path.exists(path):
+    os.remove(path)
+    
+  tsSrv = TimeSeriesService(path, XIORooms.getColumns())
+  
+  while originalDate.date() < endDate.date():
+    # Get the new date to generate the records
+    startDate = originalDate
+    
+    if firstRecord is True:
+      headers = XIORooms('Cid','TimeStamp','Value','MessageId')
+      tsSrv.addRow(headers)
+      firstRecord = False
+    elif firstRecord is False:
+      endOfDay = False
+      
+      while endOfDay is False:
+        # Avoiding Saturday and Sunday
+        if startDate.isoweekday() == 6 or startDate.isoweekday() == 7:
+          startDate = startDate + timedelta(days=1)
+          continue
+        
+        if startDate.hour >= 20:
+          endOfDay = True
+          continue
+        
+        # Randomly select the Hours and Minutes to be added
+        hoursAdd = hoursForRoom[r.randint(0,1)]
+        minutesAdd = minutesForRoom[r.randint(0,5)]
+        
+        stStart = startDate
+        stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
+        device = devicesGUID[r.randint(0,9)][0]
+        
+        # Start
+        data = XIORooms(device, stStart.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), roomStatus[r.randint(0,3)][1],'MessageIdData')
+        tsSrv.addRow(data)
+        
+        tsSrv.addRow(data)
+        startDate = stEnd + timedelta(minutes=minutesForRoom[r.randint(0,5)])
+        
+      originalDate = originalDate + timedelta(days=1)
+
+
+#endregion
+
 #region 'Main'
 if __name__ == '__main__':
-  generateAccountCSV()
-  generateRoomStatusCSV()
-  generateRoomsCSV()
-  generateRoomOccupancyCSV()
-  generateTimeSeriesData()
+  # generateAccountCSV()
+  # generateRoomStatusCSV()
+  # generateRoomsCSV()
+  # generateRoomOccupancyCSV()
+  # generateTimeSeriesData()
   # generateTimeSeriesJSON()
+  generateXIODeviceRoomsCSV()
+  generateXIORoomsCSV()
 
 #endregion
