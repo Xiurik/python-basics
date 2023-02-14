@@ -377,7 +377,7 @@ def generateXIODeviceRoomsCSV():
         
         stStart = startDate
         stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
-        device = devicesGUID[r.randint(0,9)][0]
+        device = devicesGUID[r.randint(0,9)]
         
         # Start
         data = XIORoomOccupancy(device, stStart.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), roomStatus[r.randint(0,3)][1],'MessageIdData')
@@ -407,8 +407,6 @@ class XIORooms:
 
 
 def generateXIORoomsCSV():
-  minutesForRoom = [10, 20, 30, 40, 45, 50]
-  hoursForRoom = [0, 1]
   path = 'timeseries/files/XIORooms.csv'
   originalDate = datetime.fromisoformat('2022-01-01T08:00:00.123456')
   endDate = datetime.now()+timedelta(days=60)
@@ -428,34 +426,16 @@ def generateXIORoomsCSV():
       tsSrv.addRow(headers)
       firstRecord = False
     elif firstRecord is False:
-      endOfDay = False
+      stStart = startDate
+      stEnd = stStart + timedelta(days=r.randint(1,6))
+      device = devicesGUID[r.randint(0,9)]
       
-      while endOfDay is False:
-        # Avoiding Saturday and Sunday
-        if startDate.isoweekday() == 6 or startDate.isoweekday() == 7:
-          startDate = startDate + timedelta(days=1)
-          continue
+      # Start
+      data = XIORooms(device, stStart.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), rooms[r.randint(0,9)][1],'MessageIdData')
+      tsSrv.addRow(data)
+      startDate = stEnd
         
-        if startDate.hour >= 20:
-          endOfDay = True
-          continue
-        
-        # Randomly select the Hours and Minutes to be added
-        hoursAdd = hoursForRoom[r.randint(0,1)]
-        minutesAdd = minutesForRoom[r.randint(0,5)]
-        
-        stStart = startDate
-        stEnd = stStart + timedelta(hours=hoursAdd) + timedelta(minutes=minutesAdd)
-        device = devicesGUID[r.randint(0,9)][0]
-        
-        # Start
-        data = XIORooms(device, stStart.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), roomStatus[r.randint(0,3)][1],'MessageIdData')
-        tsSrv.addRow(data)
-        
-        tsSrv.addRow(data)
-        startDate = stEnd + timedelta(minutes=minutesForRoom[r.randint(0,5)])
-        
-      originalDate = originalDate + timedelta(days=1)
+      originalDate = startDate
 
 
 #endregion
