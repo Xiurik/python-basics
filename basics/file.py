@@ -25,19 +25,19 @@ my_file.close()
 # r : allows us to read from the file
 # r+ : allows us to read and write to the file
 # a : allows us to append to the file (write at the end)
-with open('file_test.txt', mode='a') as mf:
+with open("file_test.txt", mode="a") as mf:
     for i in range(0, 10):
-        text = mf.write(f'Hi {i}\n')
+        text = mf.write(f"Hi {i}\n")
 
-with open('./basics/file_test2.txt', mode='r') as mf2:
+with open("./basics/file_test2.txt", mode="r") as mf2:
     print(mf2.read())
 
 try:
-    with open('12345.txt', mode='r') as mf:
+    with open("12345.txt", mode="r") as mf:
         print(mf.read())
 except FileNotFoundError as e:
-    print('File not found')
+    print("File not found")
     raise e
 except IOError as e:
-    print('IO Error')
+    print("IO Error")
     raise e

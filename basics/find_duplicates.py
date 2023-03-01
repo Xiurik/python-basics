@@ -1,5 +1,5 @@
 # Check for duplicates in list:
-the_list = ['a', 'b', 'c', 'b', 'd', 'e', 'f', 'c']
+the_list = ["a", "b", "c", "b", "d", "e", "f", "c"]
 duplicates = []
 the_list.sort()
 

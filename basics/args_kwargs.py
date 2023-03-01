@@ -24,4 +24,4 @@ print(kwargs_function(n1=1, n2=2, n3=3, n4=4, n5=5, n6=6))
 
 # Rule: normal params, *args, default params, **kwargs, example:
 def rule(def_param, *args, x=2, y=3, **kawargs):
-    print('This is the rule, normal params, *args, default params, **kwargs')
+    print("This is the rule, normal params, *args, default params, **kwargs")

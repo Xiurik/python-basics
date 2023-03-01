@@ -9,7 +9,6 @@ def greet(func):
 
 # Case 2
 def greet2():
-
     def functionInside():
         return 6
 

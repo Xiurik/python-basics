@@ -1,5 +1,5 @@
 # Comprehensions Exersice
-some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+some_list = ["a", "b", "c", "b", "d", "m", "n", "n"]
 
 # This method returns ['b','n']
 # duplicates = []

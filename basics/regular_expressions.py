@@ -1,9 +1,9 @@
 import re
 
-text = 'Hello my friend, lets have some fun! Mr. RORI901006Q40'
-pattern = re.compile(r'\bf[a-z]*\b')
-pattern2 = re.compile(r'([a-zA-Z]{3,4})(\d{6})([a-zA-Z\d]{3})')
-exist = re.search('f', text)
+text = "Hello my friend, lets have some fun! Mr. RORI901006Q40"
+pattern = re.compile(r"\bf[a-z]*\b")
+pattern2 = re.compile(r"([a-zA-Z]{3,4})(\d{6})([a-zA-Z\d]{3})")
+exist = re.search("f", text)
 
 # tell us where the string occurs as a tuple (first one found)
 # print(exist.span())

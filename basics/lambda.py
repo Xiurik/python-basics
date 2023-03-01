@@ -5,7 +5,7 @@
 # lambda ITEM: ACTION
 
 numbers = [1, 2, 3, 4, 5, 6]
-names = ['xiurik', 'jhon', 'fred', 'aaron', 'elena', 'ana', 'kate']
+names = ["xiurik", "jhon", "fred", "aaron", "elena", "ana", "kate"]
 
 
 def multiply_map(item):
@@ -15,5 +15,5 @@ def multiply_map(item):
 
 mapped_lamb = list(map(lambda item: item * 2, numbers))
 mapped_lamb_upper = list(map(lambda item: item.upper(), names))
-print('MAP:', mapped_lamb)
-print('MAP:', mapped_lamb_upper)
+print("MAP:", mapped_lamb)
+print("MAP:", mapped_lamb_upper)

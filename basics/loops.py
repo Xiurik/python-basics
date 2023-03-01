@@ -12,7 +12,7 @@ print(el * 2)
 print()
 
 # For in a Dictionary: ways to iterate
-user = {'name': 'Irwin', 'age': 50, 'is_cool': True}
+user = {"name": "Irwin", "age": 50, "is_cool": True}
 
 for el in user.items():
     print(el)
@@ -27,7 +27,7 @@ for el in user.keys():
 print()
 
 for key, value in user.items():
-    print(f'KEY: {key}, VALUE: {value}')
+    print(f"KEY: {key}, VALUE: {value}")
 print()
 
 # Range: used to create a list with integers, we need to declare the start and end of the sequence,
@@ -38,7 +38,7 @@ print()
 
 # You can use a variable or in case you dont need it we can use a _ and can be also used as a variable
 for _ in range(1, 11):
-    print('hello', _)
+    print("hello", _)
 print()
 
 # we can use a third parameter in the range to step over
@@ -62,62 +62,62 @@ print()
 
 # Enumerate: it will return a tuple with the index and value of each item, is very useful if you need the
 # index counter of the item we are looping
-for c in enumerate('Hello'):
+for c in enumerate("Hello"):
     print(c)
 print()
 
 # unpacking a string
-print('###### STRING - Hello ######')
-for i, k in enumerate('Hello'):
-    print(f'Index:{i}, Value:{k}')
+print("###### STRING - Hello ######")
+for i, k in enumerate("Hello"):
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # unpacking a list
-print('###### LIST - [1, 2, 3, 4, 5, 6] ######')
+print("###### LIST - [1, 2, 3, 4, 5, 6] ######")
 for i, k in enumerate([1, 2, 3, 4, 5, 6]):
-    print(f'Index:{i}, Value:{k}')
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # unpacking a tuple
-print('###### TUPLE - (1, 2, 3, 4) ######')
+print("###### TUPLE - (1, 2, 3, 4) ######")
 for i, k in enumerate((1, 2, 3, 4)):
-    print(f'Index:{i}, Value:{k}')
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # Get the index of an specific value
 for i, k in enumerate(list(range(100))):
     if i == 50:
-        print(f'Index:{i} of value {k}')
+        print(f"Index:{i} of value {k}")
 print()
 
 # Enumerate: it will return a tuple with the index and value of each item, is very useful if you need the
 # index counter of the item we are looping
-for c in enumerate('Hello'):
+for c in enumerate("Hello"):
     print(c)
 print()
 
 # unpacking a string
-print('###### STRING - Hello ######')
-for i, k in enumerate('Hello'):
-    print(f'Index:{i}, Value:{k}')
+print("###### STRING - Hello ######")
+for i, k in enumerate("Hello"):
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # unpacking a list
-print('###### LIST - [1, 2, 3, 4, 5, 6] ######')
+print("###### LIST - [1, 2, 3, 4, 5, 6] ######")
 for i, k in enumerate([1, 2, 3, 4, 5, 6]):
-    print(f'Index:{i}, Value:{k}')
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # unpacking a tuple
-print('###### TUPLE - (1, 2, 3, 4) ######')
+print("###### TUPLE - (1, 2, 3, 4) ######")
 for i, k in enumerate((1, 2, 3, 4)):
-    print(f'Index:{i}, Value:{k}')
+    print(f"Index:{i}, Value:{k}")
 print()
 
 # Get the index of an specific value
 for i, k in enumerate(list(range(100))):
     if i == 50:
-        print(f'Index:{i} of value {k}')
+        print(f"Index:{i} of value {k}")
 print()
 
 # While: it loops while the condition is True
@@ -127,11 +127,11 @@ while i <= 20:
     i += 1
 # break
 else:
-    print('Done!')
+    print("Done!")
 
 print()
 
 while True:
-    response = input('Hello, how can I help you??')
-    if str(response).upper() == 'BYE':
+    response = input("Hello, how can I help you??")
+    if str(response).upper() == "BYE":
         break

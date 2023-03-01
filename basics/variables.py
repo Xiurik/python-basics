@@ -1,7 +1,7 @@
 # Best practices
 # Should be snake_case
-useriq = 'this is wrong'
-user_iq = 'this is right'
+useriq = "this is wrong"
+user_iq = "this is right"
 
 # Start with lowercase or underscore
 # Can be anything with letter, number or underscore
@@ -23,18 +23,18 @@ this_Is_one = None
 a1 = 120
 b1 = a1
 b1 += 1
-print('a1 =', a1)
-print('b1 =', b1)
+print("a1 =", a1)
+print("b1 =", b1)
 
 # Constants are always in CAPITALS
-NAME = 'Xiurik'
+NAME = "Xiurik"
 
 # We should not create variable that start with double underscore __
 
 # We can assigne values to multiple variables in one shot
 # Statement: a, b, c = 1, 2, 'Hello' | Expression: 1, 2, 'Hello'
-a, b, c = 1, 2, 'Hello'
-print('a:', a, 'b:', b, 'c:', c)
+a, b, c = 1, 2, "Hello"
+print("a:", a, "b:", b, "c:", c)
 
 # Augmented assignment operator
 # Junior Way

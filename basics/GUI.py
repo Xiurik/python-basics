@@ -11,7 +11,7 @@ picture = [
 for i in picture:
     for d in i:
         if not d:
-            print(' ', end='')
+            print(" ", end="")
         else:
-            print('$', end='')
-    print('')
+            print("$", end="")
+    print("")

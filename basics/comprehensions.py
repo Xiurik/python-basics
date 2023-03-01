@@ -5,11 +5,11 @@
 
 # Without comprehensions
 no_list = []
-for item in 'HELLO':
+for item in "HELLO":
     no_list.append(item)
 
 # With comprehensions
-with_list = [c for c in 'HELLO']
+with_list = [c for c in "HELLO"]
 print(with_list)
 print()
 
@@ -29,14 +29,14 @@ print(list_numbers)
 print()
 
 # Set
-with_set = {c for c in 'HELLO'}
+with_set = {c for c in "HELLO"}
 print(with_set)
 print()
 
 # Dictionary
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-diction_numbers = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9, 'j': 10}
+diction_numbers = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8, "i": 9, "j": 10}
 
 # dictionary of number and squared number
 with_dict = {c: c**2 for c in numbers}

@@ -2,17 +2,17 @@
 
 while True:
     try:
-        age = int(input('whats your age? '))
+        age = int(input("whats your age? "))
         10 / age
     except ValueError:
-        print('Please enter a valid age.')
+        print("Please enter a valid age.")
     except ZeroDivisionError:
-        print('Please enter a number > 0.')
+        print("Please enter a number > 0.")
     else:  # Executes if no exception is raised
-        print('Thank you.')
+        print("Thank you.")
         break
     finally:  # This part of the code will execute at the end no matter what!
-        print('This is the end.')
+        print("This is the end.")
 
 # def sum(n1, n2):
 #     try:

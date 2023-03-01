@@ -21,15 +21,15 @@ print()
 # NONLOCAL: is used to refer to parent local, it means we want to use the variable that is outside of the function,
 # in this case the parent variable
 def outer():
-    x = 'local'
+    x = "local"
 
     def inner():
         nonlocal x
-        x = 'nonlocal'
-        print('inner x:', x)
+        x = "nonlocal"
+        print("inner x:", x)
 
     inner()
-    print('outer x:', x)
+    print("outer x:", x)
 
 
 outer()
